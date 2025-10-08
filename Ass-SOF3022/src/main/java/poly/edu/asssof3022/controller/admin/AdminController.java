@@ -6,24 +6,32 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import poly.edu.asssof3022.entity.Product;
 
-import java.util.*;
+import java.util.List;
 
 @Controller
+@RequestMapping("/admin")
 public class AdminController {
-    @RequestMapping("/admin/panel")
+
+    // Trang chính (dashboard)
+    @GetMapping("/panel")
     public String panel(Model model) {
-        return "admin/layout/main";
+        model.addAttribute("title", "Bảng điều khiển quản trị");
+        return "admin/layout/main"; // Trả về layout chính
     }
 
-    @RequestMapping("/admin/products")
+    // Trang danh sách sản phẩm
+    @GetMapping("/products")
     public String showList(Model model) {
         List<Product> list = List.of(
                 new Product(1, "Bánh mì", 10000.0, 50),
-                new Product(2, "Sữa tươi", 15000.0, 20)
+                new Product(2, "Sữa tươi", 15000.0, 20),
+                new Product(3, "Trà sữa", 30000.0, 12)
         );
+
         model.addAttribute("list", list);
         model.addAttribute("title", "Danh sách sản phẩm");
+
+
         return "admin/product/list";
     }
 }
-
