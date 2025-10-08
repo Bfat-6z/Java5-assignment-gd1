@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-<div th:replace="admin/layout/main :: layout(~{::content})">
-    <div th:fragment="content">
-        <h2>👋 Chào mừng đến trang quản trị!</h2>
-        <p>Chọn menu bên trái để bắt đầu quản lý sản phẩm.</p>
+<!-- Chèn nội dung vào fragment content của main.html -->
+<div th:insert="~{admin/layout/main :: content}">
+    <div class="container-fluid py-4">  <!-- Wrapper giống list để căn chỉnh -->
+        <h2 class="text-center text-primary mb-4">
+            Xin chào! Chào mừng đến Bảng điều khiển
+        </h2>
+        <!-- Thêm nội dung dashboard sau: charts, stats... -->
+        <!-- Ví dụ tạm: <p class="text-muted">Sẽ thêm biểu đồ ở đây.</p> -->
     </div>
 </div>
 </body>
