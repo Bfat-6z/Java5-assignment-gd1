@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:replace="admin/layout/main :: content">
+    <div class="container-fluid">
+        <h2 class="mb-3">📦 Quản lý sản phẩm</h2>
+        <a href="#" class="btn btn-primary mb-3">+ Thêm sản phẩm</a>
+
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+            <tr>
+                <th>Mã SP</th>
+                <th>Tên sản phẩm</th>
+                <th>Giá</th>
+                <th>Tồn kho</th>
+                <th>Thao tác</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="p : ${list}">
+                <td th:text="${p.id}">1</td>
+                <td th:text="${p.name}">Bánh mì</td>
+                <td th:text="${#numbers.formatDecimal(p.price, 0, 'POINT', 0, 'COMMA')} + ' ₫'">10000</td>
+                <td th:text="${p.stock}">50</td>
+                <td>
+                    <a href="#" class="btn btn-sm btn-warning">Sửa</a>
+                    <a href="#" class="btn btn-sm btn-danger">Xóa</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
