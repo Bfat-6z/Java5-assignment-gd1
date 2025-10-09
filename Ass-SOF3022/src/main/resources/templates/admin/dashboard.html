@@ -1,15 +1,40 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<body>
-<!-- Chèn nội dung vào fragment content của main.html -->
-<div th:insert="~{admin/layout/main :: content}">
-    <div class="container-fluid py-4">  <!-- Wrapper giống list để căn chỉnh -->
+<!-- dashboard.html: Fragment child -->
+<div th:replace="~{admin/layout/main :: layout( ~{::content}, ${title} )}">  <!-- Truyền ::content và title -->
+    <div th:fragment="content" class="container-fluid py-4">  <!-- Nội dung truyền làm ${content} -->
         <h2 class="text-center text-primary mb-4">
             Xin chào! Chào mừng đến Bảng điều khiển
         </h2>
-        <!-- Thêm nội dung dashboard sau: charts, stats... -->
-        <!-- Ví dụ tạm: <p class="text-muted">Sẽ thêm biểu đồ ở đây.</p> -->
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card dashboard-hero text-center">
+                    <i class="bi bi-people-fill fs-1 mb-2"></i>
+                    <h4 th:text="${totalUsers} ?: '0'">0</h4>
+                    <p>Tổng người dùng</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center bg-success text-white">
+                    <i class="bi bi-graph-up fs-1 mb-2"></i>
+                    <h4 th:text="${totalOrders} ?: '0'">0</h4>
+                    <p>Tổng đơn hàng</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center bg-info text-white">
+                    <i class="bi bi-cart-fill fs-1 mb-2"></i>
+                    <h4 th:text="${totalProducts} ?: '0'">0</h4>
+                    <p>Tổng sản phẩm</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center bg-warning text-white">
+                    <i class="bi bi-clock-fill fs-1 mb-2"></i>
+                    <h4 th:text="${totalRevenue} ?: '0'">$0</h4>
+                    <p>Doanh thu</p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-</body>
-</html>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

@@ -21,9 +21,12 @@ public class AdminController {
 
     @GetMapping("/dashboard")
     public String dashboard(Model model) {
-        System.out.println("DEBUG Dashboard: Method HIT OK!");  // Log này PHẢI in nếu fix đúng
-        model.addAttribute("title", "Bảng điều khiển Dashboard");
-        return "admin/dashboard";  // Path templates/admin/dashboard.ht
+        model.addAttribute("title", "Dashboard Admin");
+        model.addAttribute("totalUsers", 150L); // Hoặc lấy từ DB
+        model.addAttribute("totalOrders", 500L);
+        model.addAttribute("totalProducts", 200L);
+        model.addAttribute("totalRevenue", "1,000,000 VND");
+        return "admin/dashboard"; // Trả về dashboard.html
     }
 
     // Trang danh sách sản phẩm
