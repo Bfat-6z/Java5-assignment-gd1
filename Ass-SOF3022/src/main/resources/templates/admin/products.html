@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{/admin/layout/main::view(~{::div.content})}">
+
+<div class="content">
+    <h2>Danh sách sản phẩm</h2>
+
+    <!-- Form thêm sản phẩm -->
+    <form th:action="@{/admin/products/add}" method="post" class="mb-3">
+        <div class="row g-2">
+            <div class="col">
+                <input type="text" class="form-control" name="name" placeholder="Tên sản phẩm" required>
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" name="price" placeholder="Giá" step="0.01" required>
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" name="quantity" placeholder="Số lượng" required>
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary">Thêm</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- Bảng sản phẩm -->
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tên</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Thao tác</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="p : ${products}">
+            <td th:text="${p.id}"></td>
+            <td th:text="${p.name}"></td>
+            <td th:text="${p.price}"></td>
+            <td th:text="${p.quantity}"></td>
+            <td>
+                <a th:href="@{'/admin/products/delete/' + ${p.id}}" class="btn btn-danger btn-sm">Xóa</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</html>

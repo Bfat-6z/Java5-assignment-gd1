@@ -1,0 +1,10 @@
+/* static/css/style.css */
+.sidebar .nav-link {
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.sidebar .nav-link:hover {
+    background-color: silver;
+    transform: translateX(5px);
+}

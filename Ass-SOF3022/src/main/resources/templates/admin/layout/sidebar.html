@@ -1,0 +1,48 @@
+<!-- templates/admin/layout/sidebar.html -->
+<div th:fragment="sidebar">
+    <div class="sidebar d-flex flex-column flex-shrink-0 bg-dark text-white p-3"
+         style="width: 250px; min-height: 100vh;">
+        <a th:href="@{/admin/index}"
+           class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <i class="bi bi-shop me-2"></i><span class="fs-4">PC Store</span>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+                <a th:href="@{/admin/dashboard}" class="nav-link">
+                    <i class="bi bi-house-door-fill me-2"></i> Dashboard
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/admin/products}" class="nav-link text-white">
+                    <i class="bi bi-box-seam me-2"></i> Sản phẩm
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/admin/customers}" class="nav-link text-white">
+                    <i class="bi bi-people me-2"></i> Khách hàng
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/admin/orders}" class="nav-link text-white">
+                    <i class="bi bi-receipt-cutoff me-2"></i> Đơn hàng
+                </a>
+            </li>
+        </ul>
+        <hr>
+        <div class="dropdown">
+            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+               data-bs-toggle="dropdown">
+                <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                     alt="" width="32" height="32" class="rounded-circle me-2">
+                <strong>Admin</strong>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                <li><a class="dropdown-item" href="#">Cài đặt</a></li>
+                <li><a class="dropdown-item" href="#">Hồ sơ</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Đăng xuất</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
