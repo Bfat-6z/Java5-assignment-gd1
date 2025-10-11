@@ -6,5 +6,19 @@
 
 .sidebar .nav-link:hover {
     background-color: silver;
+    font-weight: bold;
     transform: translateX(5px);
+}
+
+.sidebar .nav-link.active {
+    background-color: silver !important;
+    font-weight: bold;
+}
+
+.content-scroll {
+    height: calc(100vh - 80px); /* thay đổi 70vh thành 100vh trừ chiều cao header thực tế */
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: 0;
+    margin-top: 0;
 }

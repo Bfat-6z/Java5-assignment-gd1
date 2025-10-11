@@ -9,12 +9,14 @@
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
-                <a th:href="@{/admin/dashboard}" class="nav-link">
+                <a th:href="@{/admin/dashboard}" class="nav-link text-white">
                     <i class="bi bi-house-door-fill me-2"></i> Dashboard
                 </a>
             </li>
             <li>
-                <a th:href="@{/admin/products}" class="nav-link text-white">
+                <a th:href="@{/admin/products}"
+                   th:classappend="${activeMenu == 'products'} ? ' active' : ''"
+                   class="nav-link text-white">
                     <i class="bi bi-box-seam me-2"></i> Sản phẩm
                 </a>
             </li>
@@ -29,20 +31,5 @@
                 </a>
             </li>
         </ul>
-        <hr>
-        <div class="dropdown">
-            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-               data-bs-toggle="dropdown">
-                <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
-                     alt="" width="32" height="32" class="rounded-circle me-2">
-                <strong>Admin</strong>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                <li><a class="dropdown-item" href="#">Cài đặt</a></li>
-                <li><a class="dropdown-item" href="#">Hồ sơ</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Đăng xuất</a></li>
-            </ul>
-        </div>
     </div>
 </div>
